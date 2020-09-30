@@ -15,6 +15,12 @@ public class UserRegNew {
         boolean matchfound2 = m2.find();
         return matchfound2;
 	}
+	public static boolean checkEmail(String email) {
+		Pattern p3 =Pattern.compile("^[a-z]([.+_-]{0,1}[0-9a-z]+)?@[a-z0-9]+(\\.[a-z]{2,}){1,2}");
+        Matcher m3 = p3.matcher(email);
+        boolean matchfound2 = m3.find();
+        return matchfound2;
+	}
 public static void main(String[] args) {
 	System.out.println("Welcome to User Registration");
 	Scanner sc=new Scanner(System.in);
@@ -22,7 +28,6 @@ public static void main(String[] args) {
 	System.out.println("Enter first name (Starts with capital)");
     String fname = sc.nextLine();
     if(checkFname(fname)) {
-    	System.out.println("Valid Input");
     	break;
     }
     else {
@@ -33,12 +38,23 @@ public static void main(String[] args) {
 	do {
 		System.out.println("Enter last name (Starts with capital)");
 	    String lname = sc.nextLine();
-	    if(checkFname(lname)) {
-	    	System.out.println("Valid Input");
+	    if(checkLname(lname)) {
 	    	break;
 	    }
 	    else {
 	    	System.out.println("Invalid Input(Start with capital and should have min 3 charcaters)");
+	    }
+	}while(true);
+	
+	do {
+		System.out.println("Enter Valid Email");
+	    String email = sc.nextLine();
+	    if(checkEmail(email)) {
+	    	System.out.println("Valid Input");
+	    	break;
+	    }
+	    else {
+	    	System.out.println("Invalid Input");
 	    }
 	}while(true);
 }
