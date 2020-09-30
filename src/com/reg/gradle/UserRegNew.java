@@ -28,7 +28,7 @@ public class UserRegNew {
         return matchfound2;
 	}
 	public static boolean checkPsswd(String passwd) {
-		Pattern p5 =Pattern.compile("(?=.*[A-Z])([a-zA-Z0-9]){8,}");
+		Pattern p5 =Pattern.compile("(?=.*[0-9])(?=.*[A-Z])([a-zA-Z0-9]){8,}");
         Matcher m5 = p5.matcher(passwd);
         boolean matchfound2 = m5.find();
         return matchfound2;
