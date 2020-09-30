@@ -21,6 +21,12 @@ public class UserRegNew {
         boolean matchfound2 = m3.find();
         return matchfound2;
 	}
+	public static boolean checkPhoneNumber(String number) {
+		Pattern p4 =Pattern.compile("^[1-9]{1}[0-9]{1} [1-9]{1}[0-9]{9}");
+        Matcher m4 = p4.matcher(number);
+        boolean matchfound2 = m4.find();
+        return matchfound2;
+	}
 public static void main(String[] args) {
 	System.out.println("Welcome to User Registration");
 	Scanner sc=new Scanner(System.in);
@@ -50,6 +56,17 @@ public static void main(String[] args) {
 		System.out.println("Enter Valid Email");
 	    String email = sc.nextLine();
 	    if(checkEmail(email)) {
+	    	break;
+	    }
+	    else {
+	    	System.out.println("Invalid Input");
+	    }
+	}while(true);
+	
+	do {
+		System.out.println("Enter Valid Phone Number");
+	    String number = sc.nextLine();
+	    if(checkPhoneNumber(number)) {
 	    	System.out.println("Valid Input");
 	    	break;
 	    }
